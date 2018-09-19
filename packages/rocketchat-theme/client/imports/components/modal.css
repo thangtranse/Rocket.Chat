@@ -55,6 +55,7 @@
 		position: relative;
 
 		display: flex;
+		overflow: auto;
 
 		flex-direction: column;
 
@@ -62,8 +63,6 @@
 		max-height: 90%;
 
 		padding: 16px;
-
-		overflow: auto;
 
 		animation: dropdown-show 0.1s cubic-bezier(0.45, 0.05, 0.55, 0.95);
 		align-items: stretch;
