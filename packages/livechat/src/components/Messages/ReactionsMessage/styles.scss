@@ -1,0 +1,42 @@
+@use 'sass:math';
+
+@import '../../../styles/colors';
+@import '../../../styles/variables';
+
+$reactions-message-margin: 0 math.div($default-gap, 2);
+$reactions-message-font-size: 0.625rem;
+$reactions-message-line-height: 1rem;
+$reactions-message-color: $color-text-grey;
+
+.reactions-message {
+	// position: absolute;
+
+	cursor: pointer;
+
+	margin: $reactions-message-margin;
+
+	user-select: none;
+	white-space: nowrap;
+
+	color: $reactions-message-color;
+
+	font-size: $reactions-message-font-size;
+	line-height: $reactions-message-line-height;
+	justify-self: end;
+
+	// &-wrapper {
+	// 	position: relative;
+
+	// 	& > .reactions-message {
+	// 		bottom: -16px;
+
+	// 		&--normal {
+	// 			right: -85px;
+	// 		}
+
+	// 		&--inverted {
+	// 			left: 0;
+	// 		}
+	// 	}
+	// }
+}

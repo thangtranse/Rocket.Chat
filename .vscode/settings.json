@@ -29,8 +29,12 @@
 		"oauthapps",
 		"omnichannel",
 		"photoswipe",
+		"preact",
 		"searchbox",
+		"thumbsdown",
+		"thumbsup",
 		"tmid",
-		"tshow"
+		"tshow",
+		"WEBRTC"
 	]
 }

@@ -1,5 +1,6 @@
 import path from 'path';
 
+import Dotenv from 'dotenv-webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import webpack from 'webpack';
@@ -135,6 +136,13 @@ const config = (_env: any, args: webpack.WebpackOptionsNormalized): webpack.Conf
 				title: 'Livechat - Rocket.Chat',
 				chunks: ['polyfills', 'vendor', 'bundle'],
 				chunksSortMode: 'manual',
+			}),
+			new Dotenv({
+				path: args.mode === 'production' ? './.env.production' : './.env.development',
+				safe: true,
+				systemvars: true,
+				silent: true,
+				defaults: false,
 			}),
 		],
 		devServer: {

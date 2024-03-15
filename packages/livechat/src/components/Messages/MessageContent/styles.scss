@@ -7,7 +7,7 @@ $message-content-margin: math.div(-$message-content-gap, 2) math.div($default-ga
 
 .message-content {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 
 	margin: $message-content-margin;
 	align-items: flex-start;

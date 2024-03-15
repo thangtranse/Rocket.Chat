@@ -16,6 +16,7 @@ import { MessageContainer } from '../MessageContainer';
 import { MessageContent } from '../MessageContent';
 import { MessageText } from '../MessageText';
 import MessageTime from '../MessageTime';
+import ReactionsMessage from '../ReactionsMessage';
 import VideoAttachment from '../VideoAttachment';
 import {
 	MESSAGE_TYPE_ROOM_NAME_CHANGED,
@@ -92,7 +93,18 @@ const getMessageUsernames = (compact, message) => {
 	return [username];
 };
 
-const Message = ({ avatarResolver, attachmentResolver = getAttachmentUrl, use, me, compact, className, style = {}, t, ...message }) => (
+const Message = ({
+	avatarResolver,
+	attachmentResolver = getAttachmentUrl,
+	use,
+	me,
+	compact,
+	className,
+	style = {},
+	t,
+	reactions,
+	...message
+}) => (
 	<MessageContainer id={message._id} compact={compact} reverse={me} use={use} className={className} style={style} system={!!message.type}>
 		{!message.type && <MessageAvatars avatarResolver={avatarResolver} usernames={getMessageUsernames(compact, message)} />}
 		<MessageContent reverse={me}>
@@ -106,8 +118,12 @@ const Message = ({ avatarResolver, attachmentResolver = getAttachmentUrl, use, m
 				rid: message.rid,
 				attachmentResolver,
 			})}
+			{!message.type && (
+				<div style={{ height: '100%', paddingBottom: 8, display: 'flex', alignItems: 'center' }}>
+					{!me && <ReactionsMessage reactions={reactions} mid={message._id} />}
+				</div>
+			)}
 		</MessageContent>
-
 		{!compact && !message.type && <MessageTime normal={!me} inverse={me} ts={message.ts} />}
 	</MessageContainer>
 );

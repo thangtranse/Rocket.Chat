@@ -1,5 +1,5 @@
 import type { IMessage } from '@rocket.chat/core-typings';
-import { MessageReactions, MessageReactionAction } from '@rocket.chat/fuselage';
+import { MessageReactionAction, MessageReactions } from '@rocket.chat/fuselage';
 import type { ReactElement } from 'react';
 import React, { useContext } from 'react';
 
